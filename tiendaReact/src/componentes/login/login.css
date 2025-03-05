@@ -1,0 +1,29 @@
+/* Login.css */
+
+/* Contenedor centrado con fondo degradado */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  }
+  
+  /* Estilos para el Paper que contiene el formulario */
+  .login-paper {
+    padding: 32px; /* equivalente a p:4 en MUI (4*8px) */
+    width: 400px;
+    text-align: center;
+    border-radius: 16px;
+    background-color: #f3e5ab; /* Color pergamino */
+    border: 12px solid transparent;
+    /* Asegúrate que la ruta a la imagen sea correcta */
+    border-image: url('/tiendaReact/src/assets/libros.jpg') 12 round;
+  }
+  
+  /* Estilos para el título */
+  .login-title {
+    margin-bottom: 16px; /* equivalente a mb:2 en MUI (2*8px) */
+    font-family: "Cinzel", serif;
+  }
+  

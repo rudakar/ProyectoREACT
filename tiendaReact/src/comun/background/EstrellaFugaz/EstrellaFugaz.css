@@ -1,0 +1,31 @@
+.shooting-star {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(-135deg, #fff, transparent);
+    opacity: 0;
+    pointer-events: none;
+    transform-origin: top right;
+    animation: shooting 5s ease-in-out infinite;
+  }
+  
+  @keyframes shooting {
+    0%, 90%, 100% {
+      opacity: 0;
+      transform: translate(0, 0) rotate(-135deg);
+    }
+    10% {
+      opacity: 1;
+      transform: translate(0, 0) rotate(-135deg);
+    }
+    50% {
+      opacity: 1;
+      transform: translate(-95vw, 160vh) rotate(-135deg);
+    }
+    60% {
+      opacity: 0;
+    }
+  }
+  

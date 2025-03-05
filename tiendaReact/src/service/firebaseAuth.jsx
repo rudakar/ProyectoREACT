@@ -7,7 +7,8 @@ import {
   signOut, 
   onAuthStateChanged 
 } from "firebase/auth";
-import Configuration from "../components/configuration/conf";
+import Configuration from "../Configuration";
+
 
 // Inicializar Firebase con la configuración (podrías usar variables de entorno)
 const firebaseApp = initializeApp(Configuration.real_time_database);

@@ -1,32 +1,43 @@
 import React, { useState } from "react";
+import { Box, Paper, Typography, TextField, Button, Slide } from "@mui/material";
+import { useAuth } from "../../service/firebaseAuth.jsx"; // Asegúrate de que la ruta sea la correcta
 import "./login.css";
-import {
-  Box,
-  Paper,
-  Typography,
-  TextField,
-  Button,
-  Slide,
-} from "@mui/material";
 
-// Recuerda instalar @mui/material y sus dependencias
-// npm install @mui/material @emotion/react @emotion/styled
-
-//eu
-const Login= () => {
+const Login = () => {
+  const auth = useAuth();
   const [isLogin, setIsLogin] = useState(true);
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+  const [success, setSuccess] = useState(null);
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
+    setSuccess(null); // Limpiar mensaje al cambiar formulario
   };
+
+  const onUserChange = ({ target: { value } }) => {
+    setUser(value);
+  };
+
+  const onPassChange = ({ target: { value } }) => {
+    setPassword(value);
+  };
+
+  async function signin() {
+    const response = await auth.signin(user, password);
+    setSuccess(response);
+  }
+
+  async function signup() {
+    const response = await auth.signup(user, password);
+    setSuccess(response);
+  }
 
   return (
     <Box className="login-container">
       <Paper className="login-paper">
         <Typography variant="h4" gutterBottom className="login-title">
-          {isLogin
-            ? "Bienvenido a la Tienda Mágica"
-            : "Regístrate en la Tienda Mágica"}
+          {isLogin ? "Bienvenido a la Tienda Mágica" : "Regístrate en la Tienda Mágica"}
         </Typography>
 
         {/* Formulario de Login */}
@@ -39,6 +50,8 @@ const Login= () => {
                   label="Correo"
                   margin="normal"
                   variant="outlined"
+                  value={user}
+                  onChange={onUserChange}
                 />
                 <TextField
                   fullWidth
@@ -46,12 +59,15 @@ const Login= () => {
                   margin="normal"
                   variant="outlined"
                   type="password"
+                  value={password}
+                  onChange={onPassChange}
                 />
                 <Button
                   fullWidth
                   variant="contained"
                   color="primary"
                   sx={{ mt: 2 }}
+                  onClick={signin}
                 >
                   Iniciar Sesión
                 </Button>
@@ -65,17 +81,14 @@ const Login= () => {
           <Box component="form" noValidate autoComplete="off" sx={{ mt: 2 }}>
             {!isLogin && (
               <>
-                <TextField
-                  fullWidth
-                  label="Nombre Completo"
-                  margin="normal"
-                  variant="outlined"
-                />
+                {/* Si lo deseas, puedes agregar aquí otros campos, por ejemplo nombre o confirmar contraseña */}
                 <TextField
                   fullWidth
                   label="Correo"
                   margin="normal"
                   variant="outlined"
+                  value={user}
+                  onChange={onUserChange}
                 />
                 <TextField
                   fullWidth
@@ -83,19 +96,15 @@ const Login= () => {
                   margin="normal"
                   variant="outlined"
                   type="password"
-                />
-                <TextField
-                  fullWidth
-                  label="Confirmar Contraseña"
-                  margin="normal"
-                  variant="outlined"
-                  type="password"
+                  value={password}
+                  onChange={onPassChange}
                 />
                 <Button
                   fullWidth
                   variant="contained"
                   color="primary"
                   sx={{ mt: 2 }}
+                  onClick={signup}
                 >
                   Registrarse
                 </Button>
@@ -110,6 +119,11 @@ const Login= () => {
             ? "¿No tienes cuenta? Regístrate"
             : "¿Ya tienes cuenta? Inicia Sesión"}
         </Button>
+
+        {/* Mensaje de respuesta */}
+        <Typography variant="body2" color="error" sx={{ mt: 2 }}>
+          {success !== null ? success : ""}
+        </Typography>
       </Paper>
     </Box>
   );

@@ -1,6 +1,6 @@
 
 import './App.css'
-import AppRoutes from './comun/AppRoutes'
+import AppRoutes from './comun/rutas/AppRoutes'
 import Background from './comun/background/Background'
 import { AuthProvider } from './service/firebaseAuth'
 

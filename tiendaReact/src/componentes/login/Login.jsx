@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import { Box, Paper, Typography, TextField, Button, Slide } from "@mui/material";
 import { useAuth } from "../../service/firebaseAuth.jsx"; // Asegúrate de que la ruta sea la correcta
 import "./login.css";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const auth = useAuth();
+  const navigate = useNavigate(); 
   const [isLogin, setIsLogin] = useState(true);
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const [success, setSuccess] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
-    setSuccess(null); // Limpiar mensaje al cambiar formulario
+    setErrorMsg(null); // Limpiar mensaje de error al cambiar de formulario
   };
 
   const onUserChange = ({ target: { value } }) => {
@@ -25,19 +27,29 @@ const Login = () => {
 
   async function signin() {
     const response = await auth.signin(user, password);
-    setSuccess(response);
+    // Si la respuesta es un objeto (login exitoso), redirige a otra ruta, por ejemplo, "/dashboard"
+    if (typeof response === "object") {
+      navigate("/home");
+    } else {
+      setErrorMsg(response);
+    }
   }
 
   async function signup() {
     const response = await auth.signup(user, password);
-    setSuccess(response);
+    // Si el registro es exitoso, redirige a la ruta deseada
+    if (typeof response === "object") {
+      navigate("/dashboard");
+    } else {
+      setErrorMsg(response);
+    }
   }
 
   return (
     <Box className="login-container">
       <Paper className="login-paper">
         <Typography variant="h4" gutterBottom className="login-title">
-          {isLogin ? "Bienvenido a la Tienda Mágica" : "Regístrate en la Tienda Mágica"}
+          {isLogin ? "Bienvenido a la Cámara de los Artefactos" : "Regístrate en la Cámara de los Artefactos"}
         </Typography>
 
         {/* Formulario de Login */}
@@ -81,7 +93,6 @@ const Login = () => {
           <Box component="form" noValidate autoComplete="off" sx={{ mt: 2 }}>
             {!isLogin && (
               <>
-                {/* Si lo deseas, puedes agregar aquí otros campos, por ejemplo nombre o confirmar contraseña */}
                 <TextField
                   fullWidth
                   label="Correo"
@@ -120,10 +131,12 @@ const Login = () => {
             : "¿Ya tienes cuenta? Inicia Sesión"}
         </Button>
 
-        {/* Mensaje de respuesta */}
-        <Typography variant="body2" color="error" sx={{ mt: 2 }}>
-          {success !== null ? success : ""}
-        </Typography>
+        {/* Mostrar mensaje de error si lo hay */}
+        {errorMsg && (
+          <Typography variant="body2" color="error" sx={{ mt: 2 }}>
+            {errorMsg}
+          </Typography>
+        )}
       </Paper>
     </Box>
   );

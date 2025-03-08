@@ -7,37 +7,33 @@ import {
   signOut, 
   onAuthStateChanged 
 } from "firebase/auth";
-import Configuration from "../Configuration";
+import Configuration from "../config/Configuration";
 
 
-// Inicializar Firebase con la configuración (podrías usar variables de entorno)
 const firebaseApp = initializeApp(Configuration.real_time_database);
 const authFirebase = getAuth(firebaseApp);
 
-// Crear contexto para la autenticación
 const AuthContext = createContext();
 
-// Hook para acceder al contexto de autenticación
-export function useAuth() {
-  return useContext(AuthContext);
-}
-
-// Provider para la autenticación
-export function AuthProvider({ children }) {
+export const AuthProvider = ({ children }) => {
   const auth = useProvideAuth();
   return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
-}
+};
 
-// Hook que maneja la lógica de autenticación
+export const useAuth = () => useContext(AuthContext);
+
 function useProvideAuth() {
-  const [user, setUser] = useState(null);
+  const initialUser = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : null;
+  const [user, setUser] = useState(initialUser);
 
-  // Escucha los cambios en la autenticación para mantener el estado sincronizado
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(authFirebase, (firebaseUser) => {
       setUser(firebaseUser);
+
+      
       if (firebaseUser) {
-        // Guarda solo la información que necesites
         localStorage.setItem("user", JSON.stringify(firebaseUser));
       } else {
         localStorage.removeItem("user");
@@ -53,7 +49,6 @@ function useProvideAuth() {
       localStorage.setItem("user", JSON.stringify(response.user));
       return response.user;
     } catch (error) {
-      console.error("Error en signIn:", error);
       return error.message;
     }
   };
@@ -65,7 +60,6 @@ function useProvideAuth() {
       localStorage.setItem("user", JSON.stringify(response.user));
       return response.user;
     } catch (error) {
-      console.error("Error en signUp:", error);
       return error.message;
     }
   };
@@ -76,7 +70,7 @@ function useProvideAuth() {
       setUser(null);
       localStorage.removeItem("user");
     } catch (error) {
-      console.error("Error en signOut:", error);
+      console.error(error);
     }
   };
 

@@ -1,0 +1,67 @@
+.home-container {
+    padding: 16px;
+    min-height: calc(100vh - 64px)  !important; /* Ajusta si tienes un header fijo, por ejemplo */
+    background-color: rgba(19, 184, 226, 0.3);
+  }
+  
+  .home-grid {
+    margin-top: 16px !important;
+  }
+  
+  /* Tarjeta temática: todas con la misma altura */
+  .theme-card {
+    height: 300px !important; /* Puedes ajustar la altura según lo que necesites */
+  }
+  
+  /* Área de acción de la tarjeta, donde se muestra el fondo */
+  .card-action {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Se usa la variable CSS para el fondo estático */
+    background-image: var(--static-bg);
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.3s ease;
+  }
+  
+  /* Al hacer hover, cambia el fondo al GIF animado */
+  .card-action:hover {
+    background-image: var(--animated-bg);
+  }
+  
+  /* Overlay para mejorar la legibilidad del texto */
+  .card-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  /* Título de la tarjeta */
+  .card-title {
+    color: #fff;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Responsive: ajustes para dispositivos medianos y pequeños */
+  @media (max-width: 768px) {
+    .theme-card {
+      height: 250px;
+    }
+    .card-title {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .theme-card {
+      height: 200px;
+    }
+    .card-title {
+      font-size: 1.2rem;
+    }
+  }
+  

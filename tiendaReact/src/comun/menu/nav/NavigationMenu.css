@@ -1,0 +1,44 @@
+.nav-menu {
+  width: 100%!important;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  /* Fondo diferenciado: degradado azul oscuro */
+  background: linear-gradient(90deg, #404080, #9133bd);
+  padding: 8px 0;
+}
+
+/* Estilos para los botones del menú */
+.nav-button {
+  margin: 0 20px !important; /* Mayor separación entre botones */
+  color: #ffffff !important;
+  transition: transform 0.3s ease, background-color 0.3s ease !important;
+  border-radius: 4px !important;
+  padding: 10px 20px !important;
+}
+
+.nav-button:hover {
+  transform: scale(1.2) !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Media queries para dispositivos pequeños */
+@media (max-width: 768px) {
+  .nav-button {
+    margin: 0 10px;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-button {
+    margin: 5px 5px;
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}

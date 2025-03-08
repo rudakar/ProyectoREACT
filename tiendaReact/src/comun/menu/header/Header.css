@@ -1,0 +1,168 @@
+/* Reset básico */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* AppBar: ocupa todo el ancho, con fondo degradado morado y estrellas */
+.header-appbar {
+  width: 100%;
+  background: linear-gradient(rgba(174, 1, 255, 0.8), rgba(63, 2, 91, 0.8))!important;
+  box-shadow: none;
+  padding: 0;
+
+}
+
+/* Toolbar: estructura vertical */
+.header-toolbar {
+  flex-direction: column;
+  padding: 8px 16px;
+}
+
+/* Top row: distribución en tres columnas */
+.top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+}
+
+/* Secciones del top row */
+.top-left,
+.top-center,
+.top-right {
+  flex: 1;
+}
+
+/* Alineación de cada sección */
+.top-left {
+  text-align: left;
+  margin-left: 2%;
+}
+
+.top-center {
+  text-align: center;
+}
+
+.top-right {
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Logo: */
+.header-logo-button {
+  text-transform: none;
+  padding: 0 !important;
+  min-width: auto !important;
+}
+
+.header-logo-icon {
+  
+  font-size: 56px !important;
+  transition: transform 0.3s ease;
+}
+
+.header-logo-button:hover .header-logo-icon {
+  transform: rotate(20deg);
+}
+
+/* Nombre de la tienda */
+.header-store-name {
+  font-family: 'Cinzel', serif;
+  font-weight: bold!important;
+  color: #fff;
+}
+.logo-image {
+  
+  width: 15% !important;
+  
+}
+.logo-image:hover {
+  
+  width: 20% !important;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  
+}
+/* Iconos de usuario y carrito */
+.header-icon-button {
+  margin-left: 12px!important;
+}
+
+.user-icon,
+.cart-icon {
+  font-size: 48px !important;
+  transition: transform 0.3s ease !important;
+}
+
+/* Efecto bounce para el carrito al hover */
+.cart-icon-container:hover .cart-icon {
+  animation: bounce 0.5s !important;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+
+/* Responsive: ajustes para pantallas medianas y pequeñas */
+@media (max-width: 768px) {
+  .header-appbar {
+    background-size: cover!important;
+  }
+  
+  .header-logo-icon {
+    font-size: 48px !important;
+  }
+  .user-icon,
+  .cart-icon {
+    font-size: 40px !important;
+  }
+  .header-store-name {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .header-appbar {
+    background-size: cover!important;
+  }
+  .top-row {
+    flex-direction: column;
+    height: auto;
+  }
+  .top-left,
+  .top-center,
+  .top-right {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+}
+/* Estilo para el Paper del menú, limitado a la clase "magical-menu" */
+.magical-menu {
+  background: linear-gradient(90deg, rgb(134, 13, 190), rgba(111, 5, 95, 0.425)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6) !important;
+  border-radius: 8px !important;
+  color: #fff;
+}
+
+/* Estilo para cada item del menú */
+.magical-menu-item {
+  font-family: 'Cinzel', serif !important;
+  color: #fff !important;
+  transition: background-color 0.3s ease;
+}
+/* Estilo para los íconos dentro del menú */
+.menu-icon {
+  margin-right: 10px;
+  font-size: 30px !important;
+}
+.magical-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}

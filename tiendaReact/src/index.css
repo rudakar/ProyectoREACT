@@ -1,8 +1,14 @@
-body.MuiModal-open {
-    padding-right: 0 !important;
-    overflow-y: scroll !important;
+/* body.MuiModal-open {
+    /* padding-right: 0 !important; */
+    /* overflow-y: scroll !important; **/
+  html {
+    /* padding-right: 0 !important; */
+    height: 100%;
+    width: 100%;
+    /* overflow-y: scroll !important; */
+  
   }
-  /* html {
-    
-    overflow-y: scroll !important;
-  } */
+
+  html::-webkit-scrollbar {
+    display: none;
+  }

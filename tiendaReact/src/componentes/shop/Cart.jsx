@@ -1,5 +1,5 @@
 // Cart.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Typography, List, ListItem, ListItemAvatar, Avatar, ListItemText, IconButton, Divider, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './Cart.css';
@@ -7,7 +7,9 @@ import { useCart } from '../../service/CartContext';
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart } = useCart();
-
+  useEffect(() => {
+    console.log("Cart actualizado:", cart);
+  }, [cart]);
   const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (

@@ -17,6 +17,7 @@ import NavigationMenu from "../nav/NavigationMenu";
 import PersonIcon from "@mui/icons-material/Person";
 import HistoryIcon from "@mui/icons-material/History";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { Link } from "react-router-dom";
 const MenuCabecera = ({ onLogout }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -39,20 +40,22 @@ const MenuCabecera = ({ onLogout }) => {
         {/* Top row: distribución en tres columnas */}
         <Box className="top-row">
           {/* Izquierda: Ícono */}
-          <Box className="top-left">
-          
-              <img src={logo} alt="SHOP" className="logo-image" />
-           
+          <Box className="top-left" >
+              <Link component={Link} to={"/home"}>
+                <img src={logo} alt="SHOP" className="logo-image" />
+              </Link>
+              
+
           </Box>
           {/* Centro: Nombre de la tienda */}
           <Box className="top-center">
             
-            <Typography variant="h2" className="header-store-name" noWrap>
+            <Typography variant="h2" className="header-store-name" noWrap component={Link} to={"/home"} sx={{ textDecoration: "none" }}>
             <AutoAwesomeIcon className="header-logo-icon" />Cámara de los Artefactos<AutoAwesomeIcon className="header-logo-icon" />
             </Typography>
           </Box>
           {/* Derecha: Íconos de carrito y usuario */}
-          <Box className="top-right">
+          <Box className="top-right" >
             <IconButton color="inherit" className="header-icon-button cart-icon-container">
               <ShoppingCartIcon className="cart-icon" />
             </IconButton>

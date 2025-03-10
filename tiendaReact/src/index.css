@@ -2,4 +2,7 @@ body.MuiModal-open {
     padding-right: 0 !important;
     overflow-y: scroll !important;
   }
-  
+  /* html {
+    
+    overflow-y: scroll !important;
+  } */

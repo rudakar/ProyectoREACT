@@ -76,12 +76,11 @@ html, body {
 }
 .logo-image {
   
-  width: 15% !important;
+  width: 25% !important;
   
 }
 .logo-image:hover {
   
-  width: 20% !important;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.1);
   

@@ -8,35 +8,35 @@ import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 import Pets from "@mui/icons-material/Pets";
 import LuggageIcon from '@mui/icons-material/Luggage';
 import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
-import LocationSearchingIcon from '@mui/icons-material/LocationSearching';
 import "./NavigationMenu.css";
+import { Link } from "react-router-dom";
 
 const NavigationMenu = () => {
   return (
     <Box className="container-fluid nav-menu">
     
-      <Button color="inherit" className="nav-button" startIcon={<AutoAwesomeIcon />}>
+      <Button component={Link} color="inherit" to="/exp/varitas" className="nav-button" startIcon={<AutoAwesomeIcon />}>
         Varitas 
       </Button>
-      <Button color="inherit" className="nav-button" startIcon={<LocalDrinkIcon />}>
+      <Button component={Link} color="inherit" to="/exp/pociones"className="nav-button" startIcon={<LocalDrinkIcon />}>
         Pociones
       </Button>
-      <Button color="inherit" className="nav-button" startIcon={<SportsSoccerIcon  />}>
+      <Button component={Link} color="inherit" to="/exp/quidditch"className="nav-button" startIcon={<SportsSoccerIcon  />}>
       Quidditch
       </Button>
-      <Button color="inherit" className="nav-button" startIcon={<Pets/>}>
+      <Button component={Link} color="inherit" to="/exp/animales"className="nav-button" startIcon={<Pets/>}>
       Animales Mitologicos
       </Button>
-      <Button color="inherit" className="nav-button" startIcon={<MenuBookIcon />}>
+      <Button component={Link} color="inherit" to="/exp/tomos"className="nav-button" startIcon={<MenuBookIcon />}>
         Tomos Encantados
       </Button>
-      <Button color="inherit" className="nav-button" startIcon={<MilitaryTechIcon />}>
+      <Button component={Link} color="inherit" to="/exp/reliquias"className="nav-button" startIcon={<MilitaryTechIcon />}>
         Reliquias Legendarias
       </Button>
-      <Button color="inherit" className="nav-button" startIcon={<EmojiEmotionsIcon />}>
+      <Button component={Link} color="inherit" to="/exp/sortilegios"className="nav-button" startIcon={<EmojiEmotionsIcon />}>
         Sortilegios Weasly
       </Button>
-      <Button color="inherit" className="nav-button" startIcon={<LuggageIcon />}>
+      <Button component={Link} color="inherit" to="/exp/viajes"className="nav-button" startIcon={<LuggageIcon />}>
         Destinos Turísticos
       </Button>
     </Box>

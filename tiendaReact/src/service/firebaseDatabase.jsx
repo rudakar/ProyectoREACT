@@ -1,7 +1,8 @@
 import React, { createContext, useContext } from "react";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, child, get, push, remove } from "firebase/database";
-import Configuration from "../components/configuration/conf";
+import Configuration from "../config/Configuration";
+
 
 // Inicializar Firebase (se puede compartir la instancia si se desea)
 const firebaseApp = initializeApp(Configuration.real_time_database);

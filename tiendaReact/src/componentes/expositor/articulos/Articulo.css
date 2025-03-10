@@ -1,0 +1,58 @@
+.articulo-card {
+    background: linear-gradient(135deg, rgba(207, 196, 235, 0.8), rgba(221, 210, 224, 0.8))!important;
+    color: #070005 !important;
+    border-radius: 12px !important;
+    box-shadow: 0px 4px 10px rgba(53, 6, 161, 0.8) !important;
+   
+    transition: transform 0.3s ease !important;
+  }
+  .card-details {
+    background-color: rgb(247, 247, 247); /* Ajusta el color según lo que necesites */
+    padding: 8px;
+    /* border-radius: 0 0 12px 12px;  */
+  }
+
+  .articulo-card.animate {
+    transform: scale(1.05);
+  }
+  
+  .articulo-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 4px 15px rgb(255, 1, 234) !important;
+  }
+  
+  .articulo-title {
+    color: #5b027e !important;
+    font-family: 'Cinzel', serif !important;
+    margin-bottom: 8px !important;
+    font-weight: bold !important;
+  }
+  .articulo-media {
+    height: 180px !important;   /* Tamaño fijo, ajústalo según lo necesites */
+    object-fit: contain!important;
+  }
+  
+  .articulo-content {
+    font-family: 'Roboto', sans-serif !important;
+  }
+  .magical-tooltip {
+    font-size: 1rem !important;
+    padding: 8px 16px!important;
+    background-color: rgba(131, 5, 93, 0.8)!important;
+  }
+  
+  /* Estilo para la flecha del tooltip */
+  .magical-tooltip-arrow {
+    color: rgba(131, 5, 93, 0.8)!important;
+  }
+  .articulo-price {
+    font-family: 'Roboto', sans-serif!important;
+
+    margin-bottom: 8px!important;
+    
+  }
+  @media (max-width: 768px) {
+    .articulo-media {
+      height: 150px;
+    }
+  }

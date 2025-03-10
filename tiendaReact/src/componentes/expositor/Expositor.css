@@ -1,0 +1,14 @@
+.expositor-container {
+    padding: 32px;
+    background-color: rgba(30, 196, 238, 0.5);
+    min-height: calc(100vh - 64px); /* Ajusta según el header */
+  }
+  
+  .expositor-title {
+    color: #fff ;
+    margin-bottom: 16px !important;
+  }
+  .filtro-container {
+    margin-bottom: 32px; /* Ajusta el valor según necesites */
+  }
+  

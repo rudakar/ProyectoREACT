@@ -1,0 +1,101 @@
+/* Estilo general para el contenedor completo del filtro */
+.filtro-outer {
+    background-color: rgba(173, 160, 233, 0.836)!important;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.6)!important;
+    
+  }
+  
+  /* Título del accordion exterior */
+  .filtro-outer-title {
+    font-family: 'Cinzel', serif;
+    font-weight: bold !important;
+    color: #ffffff !important;
+  }
+  
+  /* Contenedor que agrupa todo el contenido del filtro */
+  .filtro-full-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  /* Sección de Búsqueda y Orden */
+  .busqueda-container {
+    display: flex ;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .filtro-textfield {
+    background-color: rgba(255, 255, 255, 0.9)!important;
+    border-radius: 4px !important;
+    font-family: 'Roboto', sans-serif;
+    padding: 8px;
+  }
+  
+  .orden-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .order-formcontrol {
+    width: 100%;
+  }
+  
+  /* Divider */
+  .filtro-divider {
+    margin: 8px 0;
+  }
+  
+  /* Accordion interior para Filtros */
+  .filtro-inner {
+    background-color: rgba(255, 255, 255, 0.9)!important;
+    border-radius: 4px ;
+  }
+  
+  .filtro-inner-title {
+    font-family: 'Cinzel', serif ;
+    font-weight: bold !important;
+    color: #333 ;
+  }
+  
+  /* Grid para la sección de Filtros (categorías, rating y precio) */
+  .filtro-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  
+  .filtro-autocomplete {
+    background-color: rgba(255, 255, 255, 0.9)!important;
+    border-radius: 4px !important;
+    font-family: 'Roboto', sans-serif;
+    padding: 8px !important;
+  }
+  
+  .filtro-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px !important;
+  }
+  
+  .filtro-item-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500 !important;
+    color: #333;
+  }
+  
+  /* Responsive: en pantallas medianas y pequeñas, se apila en una columna */
+  @media (max-width: 768px) {
+    .filtro-grid {
+      grid-template-columns: 1fr;
+    }
+    .busqueda-container,
+    .orden-container {
+      flex-direction: column;
+    }
+  }
+  

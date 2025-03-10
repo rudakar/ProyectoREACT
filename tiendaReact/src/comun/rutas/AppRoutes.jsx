@@ -4,6 +4,8 @@ import ProtectedRoute from './ProtectedRoute';
 import Home from '../../componentes/home/Home';
 
 import Navbar from './Navbar';
+import Expositor from '../../componentes/expositor/Expositor';
+import Cart from '../../componentes/shop/Cart';
 const AppRoutes =()=>{
     return(
         <Routes>
@@ -15,7 +17,9 @@ const AppRoutes =()=>{
         {/* Layout que incluye la barra de navegación */}
         <Route element={<Navbar/>}>
           <Route path="/home" element={<Home />} />
-          
+          <Route path="/exp" element={<Expositor category="explorar" />} />
+          <Route path="/exp/:category" element={<Expositor />} />
+          <Route path="/cart" element={<Cart/>} />
           
           <Route path="*" element={<Home />} />
         </Route>

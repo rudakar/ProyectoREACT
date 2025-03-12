@@ -1,0 +1,71 @@
+.historial-container {
+    padding: 16px;
+    background-color: #3fa3c85b;
+    min-height: calc(100vh - 64px);
+    text-align: center;
+  }
+  
+  .historial-title {
+    
+    margin-bottom: 16px ;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Filtro: contenedor con fondo distinto */
+  .historial-filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 0 auto 16px auto; /* Centrado horizontal y margen inferior */
+    background-color: #fefefef7; /* Ajusta el color si es necesario */
+    padding: 16px;
+    border-radius: 8px !important;
+    width: 600px;  /* Fija la anchura igual que las tarjetas */
+    max-width: 100%;
+  }
+  
+  
+  .order-date-formcontrol {
+    min-width: 200px ;
+  }
+  
+  /* Mensaje en caso de no tener pedidos */
+  .historial-empty {
+    margin-top: 32px ;
+  }
+  
+  /* Lista de tarjetas centrada */
+  .historial-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  /* Tarjeta de pedido: tamaño uniforme, dividida en dos secciones */
+  .order-card {
+    width: 600px;
+    max-width: 100%;
+    height: 200px; /* Ajusta la altura según lo que necesites */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(66, 0, 231, 0.784);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .order-card-header {
+    background-color: #2c3daf87; /* Fondo para la cabecera */
+    padding: 16px;
+    text-align: left;
+  }
+  
+  .order-card-body {
+    background-color: #f9f9f9; /* Fondo para el cuerpo */
+    padding: 16px;
+    flex: 1;
+    text-align: left;
+  }
+  

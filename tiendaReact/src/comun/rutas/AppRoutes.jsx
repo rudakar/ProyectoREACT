@@ -6,6 +6,8 @@ import Home from '../../componentes/home/Home';
 import Navbar from './Navbar';
 import Expositor from '../../componentes/expositor/Expositor';
 import Cart from '../../componentes/shop/Cart';
+import Checkout from '../../componentes/shop/Checkout';
+import Historial from '../../componentes/historial/Historial';
 const AppRoutes =()=>{
     return(
         <Routes>
@@ -20,6 +22,8 @@ const AppRoutes =()=>{
           <Route path="/exp" element={<Expositor category="explorar" />} />
           <Route path="/exp/:category" element={<Expositor />} />
           <Route path="/cart" element={<Cart/>} />
+          <Route path="/checkout" element={<Checkout/>} />
+          <Route path="/historial" element={<Historial/>} />
           
           <Route path="*" element={<Home />} />
         </Route>

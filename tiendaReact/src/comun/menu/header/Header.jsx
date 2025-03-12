@@ -22,7 +22,9 @@ import HistoryIcon from "@mui/icons-material/History";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Link } from "react-router-dom";
 import { useCart } from "../../../service/CartContext";
+import { useAuth } from "../../../service/firebaseAuth";
 const MenuCabecera = ({ onLogout }) => {
+  const auth = useAuth();
   const [anchorEl, setAnchorEl] = useState(null);
   const { cart ,lastUpdated } = useCart();
   const [animateCart, setAnimateCart] = useState(false);
@@ -63,8 +65,9 @@ const MenuCabecera = ({ onLogout }) => {
     setAnchorEl(null);
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     handleUserMenuClose();
+    await auth.signout();
     if (onLogout) onLogout();
   };
 
@@ -134,8 +137,8 @@ const MenuCabecera = ({ onLogout }) => {
           <PersonIcon className="menu-icon" />
           Mi Perfil
         </MenuItem>
-        <MenuItem onClick={handleUserMenuClose} className="magical-menu-item">
-          <HistoryIcon className="menu-icon" />
+        <MenuItem component={Link} to="/historial" onClick={handleUserMenuClose} className="magical-menu-item">
+          <HistoryIcon  className="menu-icon" />
           Historial
         </MenuItem>
         <MenuItem onClick={handleUserMenuClose} className="magical-menu-item">
@@ -161,6 +164,9 @@ const MenuCabecera = ({ onLogout }) => {
         }}
         TransitionComponent={Slide}
         TransitionProps={{ direction: "down" }}
+        PaperProps={{
+          sx: { ml: '-8%' }  // Mueve 20px a la izquierda
+        }}
       >
         <Box sx={{p: 1, display: 'flex', alignItems: 'center', gap: 1  }}>
         {popoverContent.image && (

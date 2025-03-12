@@ -1,10 +1,20 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  // Inicializa el carrito a partir del localStorage (si existe) o como un array vacío.
+  const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+
   const [lastUpdated, setLastUpdated] = useState(null);
+
+  // Cada vez que el carrito cambie, se guarda en localStorage.
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (article) => {
     setCart((prevCart) => {
@@ -24,6 +34,7 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  // Quita una unidad del artículo; si es la última, elimina el artículo.
   const removeFromCart = (articleId) => {
     setCart((prevCart) => {
       const existing = prevCart.find((item) => item.id === articleId);

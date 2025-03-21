@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Paper,
@@ -16,6 +16,7 @@ import {
   TextField
 } from '@mui/material';
 
+import { getDatabase, ref, get } from "firebase/database";
 import './Checkout.css';
 import { useCart } from '../../service/CartContext';
 import { useAuth } from '../../service/firebaseAuth';
@@ -31,6 +32,27 @@ const Checkout = () => {
   const [address, setAddress] = useState('');
   
   const totalPrice = cart.reduce((acc, item) => acc + Number(item.price) * item.quantity, 0);
+  
+  // Obtener la dirección por defecto del perfil del usuario desde Firebase
+  useEffect(() => {
+    async function fetchDefaultAddress() {
+      if (user) {
+        try {
+          const database = getDatabase();
+          const snapshot = await get(ref(database, "perfil/" + user.uid));
+          if (snapshot.exists()) {
+            const data = snapshot.val();
+            if (data && data.address) {
+              setAddress(data.address);
+            }
+          }
+        } catch (error) {
+          console.error("Error fetching default address:", error);
+        }
+      }
+    }
+    fetchDefaultAddress();
+  }, [user]);
   
   const handleStepChange = (step) => {
     setActiveStep(step);

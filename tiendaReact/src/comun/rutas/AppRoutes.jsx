@@ -8,6 +8,7 @@ import Expositor from '../../componentes/expositor/Expositor';
 import Cart from '../../componentes/shop/Cart';
 import Checkout from '../../componentes/shop/Checkout';
 import Historial from '../../componentes/historial/Historial';
+import Perfil from '../perfil/Perfil';
 const AppRoutes =()=>{
     return(
         <Routes>
@@ -24,6 +25,7 @@ const AppRoutes =()=>{
           <Route path="/cart" element={<Cart/>} />
           <Route path="/checkout" element={<Checkout/>} />
           <Route path="/historial" element={<Historial/>} />
+          <Route path="/profile" element={<Perfil/>} />
           
           <Route path="*" element={<Home />} />
         </Route>

@@ -1,0 +1,42 @@
+.perfil-container {
+    display: flex !important;
+    justify-content: center !important;
+    padding: 16px !important;
+
+    min-height: calc(100vh - 64px) !important;
+    align-items: flex-start !important;
+  }
+  
+  .perfil-card {
+    width: 400px !important;
+    max-width: 100% !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    margin-top: 16px !important;
+  }
+  
+  .perfil-title {
+    font-family: 'Cinzel', serif;
+    font-weight: bold !important;
+    margin-bottom: 8px !important;
+    text-align: center !important;
+  }
+  
+  .perfil-email {
+    text-align: center !important;
+    margin-bottom: 16px !important;
+  }
+  
+  .perfil-address-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    align-items: center !important;
+    margin-bottom: 16px !important;
+  }
+  
+  .perfil-delete-container {
+    display: flex !important;
+    justify-content: center !important;
+  }
+  

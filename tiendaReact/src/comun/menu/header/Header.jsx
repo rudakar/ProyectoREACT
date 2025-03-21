@@ -50,7 +50,7 @@ const MenuCabecera = ({ onLogout }) => {
       };
       setPopoverContent(content);
       setPopoverOpen(true);
-      const timer = setTimeout(() => setPopoverOpen(false), 2000);
+      const timer = setTimeout(() => setPopoverOpen(false), 1000);
       return () => clearTimeout(timer);
     }
   }, [lastUpdated]);
@@ -133,7 +133,7 @@ const MenuCabecera = ({ onLogout }) => {
           className: "magical-menu",
         }}
       >
-        <MenuItem onClick={handleUserMenuClose} className="magical-menu-item">
+        <MenuItem onClick={handleUserMenuClose} component={Link} to="/profile"	className="magical-menu-item">
           <PersonIcon className="menu-icon" />
           Mi Perfil
         </MenuItem>
@@ -164,6 +164,13 @@ const MenuCabecera = ({ onLogout }) => {
         }}
         TransitionComponent={Slide}
         TransitionProps={{ direction: "down" }}
+        ModalProps={{
+          hideBackdrop: true, // Deshabilita el overlay
+          disableScrollLock: true,
+          disableEnforceFocus: true,
+          disableAutoFocus: true,          // No forzar autoenfoque
+          disableRestoreFocus: true        // No restaurar el foco automáticamente
+        }}
         PaperProps={{
           sx: { ml: '-8%' }  // Mueve 20px a la izquierda
         }}

@@ -5,11 +5,13 @@ import "./Perfil.css";
 
 import { getDatabase, ref, set, get } from "firebase/database";
 import { useAuth } from "../../service/firebaseAuth";
+import { useCart } from "../../service/CartContext";
 
 const Perfil = () => {
   const { user, signout } = useAuth();
   const [address, setAddress] = useState("");
   const [isEditing, setIsEditing] = useState(false);
+  const { clearCart } = useCart();
 
   // Al montar, se obtiene la dirección del perfil almacenada en la base de datos
   useEffect(() => {
@@ -46,11 +48,15 @@ const Perfil = () => {
   // Elimina la cuenta del usuario (operación sensible, se requiere que el usuario haya iniciado sesión recientemente)
   const handleDeleteAccount = async () => {
     try {
-      await user.delete();
-      // Opcional: puedes cerrar la sesión o redirigir al usuario luego de eliminar la cuenta.
+      if (user) {
+        await user.delete();
+        clearCart();            // Limpia el carrito
+        await signout();        // Asegura limpieza en contextos
+        navigate("/login");     // Redirige al login
+      }
     } catch (error) {
-      console.error("Error deleting account:", error);
-      alert("Error eliminando la cuenta. Es posible que necesites volver a iniciar sesión y luego intentarlo.");
+      console.error("Error eliminando la cuenta:", error.message);
+      // Puedes mostrar un mensaje de error al usuario si quieres
     }
   };
 

@@ -26,7 +26,7 @@ import { useAuth } from "../../../service/firebaseAuth";
 const MenuCabecera = ({ onLogout }) => {
   const auth = useAuth();
   const [anchorEl, setAnchorEl] = useState(null);
-  const { cart ,lastUpdated } = useCart();
+  const { cart ,lastUpdated ,clearCart } = useCart();
   const [animateCart, setAnimateCart] = useState(false);
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [popoverContent, setPopoverContent] = useState("");
@@ -68,6 +68,7 @@ const MenuCabecera = ({ onLogout }) => {
   const handleLogout = async () => {
     handleUserMenuClose();
     await auth.signout();
+    clearCart();
     if (onLogout) onLogout();
   };
 

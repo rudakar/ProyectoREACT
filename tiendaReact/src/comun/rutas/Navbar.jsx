@@ -6,8 +6,10 @@ import MenuCabecera from '../menu/header/Header';
 const Navbar = () => {
   return (
     <>
-      <MenuCabecera />
-      <Outlet />
+      <div style={{display:"flex", flexDirection:"column", width:"100%", height:"100%"}}>
+        <div> <MenuCabecera /></div>
+        <div><Outlet /></div>
+      </div>
     </>
   );
 };

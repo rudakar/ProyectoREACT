@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 const NavigationMenu = () => {
   return (
-    <Box className="container-fluid nav-menu">
+    <Box className="container-fluid nav-menu navigation-menu">
     
       <Button component={Link} color="inherit" to="/exp/varitas" className="nav-button" startIcon={<AutoAwesomeIcon />}>
         Varitas 

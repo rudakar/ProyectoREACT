@@ -1,12 +1,18 @@
 /* body.MuiModal-open {
     /* padding-right: 0 !important; */
-    /* overflow-y: scroll !important; **/
-  html {
-    /* padding-right: 0 !important; */
+    
+    
+    html, body, #root {
+    width: 100%;  
+    overflow-y: hidden;
     height: 100%;
-    width: 100%;
-    /* overflow-y: scroll !important; */
-  
+    margin: 0;
+    padding: 0;
+  }
+
+  #root {
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   html::-webkit-scrollbar {

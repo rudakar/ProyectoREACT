@@ -1,3 +1,11 @@
+.navigation-menu{
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-evenly !important;
+  padding: 1rem !important;
+  flex-wrap: wrap;
+}
+
 .nav-menu {
   width: 100%!important;
   display: flex;
@@ -23,7 +31,7 @@
 }
 
 /* Media queries para dispositivos pequeños */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .nav-button {
     margin: 0 10px;
     font-size: 0.9rem;

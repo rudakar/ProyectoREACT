@@ -1,21 +1,11 @@
 /* Reset básico */
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-/* AppBar: ocupa todo el ancho, con fondo degradado morado y estrellas */
-.header-appbar {
-  width: 100%;
-  background: linear-gradient(rgba(174, 1, 255, 0.8), rgba(63, 2, 91, 0.8))!important;
-  /* box-shadow: none; */
-  /* padding: 0; */
-
-}
 
 /* Toolbar: estructura vertical */
 .header-toolbar {
+  display: flex;
   flex-direction: column;
+  width: 100%;
+  background: linear-gradient(rgba(174, 1, 255, 0.8), rgba(63, 2, 91, 0.8))!important;
   /* padding: 8px 16px; */
 }
 
@@ -23,32 +13,36 @@ html, body {
 .top-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 100px;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 1rem;
 }
 
 /* Secciones del top row */
 .top-left,
-.top-center,
 .top-right {
-  flex: 1;
+  flex: 1 !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.top-right{
+  justify-content: end;
+  margin-right: 1.5rem;
+}
+
+.top-center{
+  flex:3 !important;
+  text-align: center;
 }
 
 /* Alineación de cada sección */
 .top-left {
   text-align: left;
   margin-left: 2%;
-}
-
-.top-center {
-  text-align: center;
-}
-
-.top-right {
-  text-align: right;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
 }
 
 /* Logo: */
@@ -75,8 +69,9 @@ html, body {
   color: #fff;
 }
 .logo-image {
-  
-  width: 25% !important;
+  width: 75px;
+  height: 75px;
+  object-fit: "fit";
   
 }
 .logo-image:hover {
@@ -94,6 +89,7 @@ html, body {
 .cart-icon {
   font-size: 48px !important;
   transition: transform 0.3s ease !important;
+  color: white !important;
 }
 
 /* Efecto bounce para el carrito al hover */
@@ -114,10 +110,7 @@ html, body {
 }
 /* Responsive: ajustes para pantallas medianas y pequeñas */
 @media (max-width: 768px) {
-  .header-appbar {
-    background-size: cover!important;
-  }
-  
+
   .header-logo-icon {
     font-size: 48px !important;
   }
@@ -128,13 +121,13 @@ html, body {
   .header-store-name {
     font-size: 1.2rem;
   }
+  .top-center{
+    display: none !important;
+  }
 }
 
 @media (max-width: 576px) {
-  .header-appbar {
-    background-size: cover!important;
-  }
-  .top-row {
+  /* .top-row {
     flex-direction: column;
     height: auto;
   }
@@ -144,6 +137,9 @@ html, body {
     width: 100%;
     text-align: center;
     margin-bottom: 8px;
+  } */
+  .top-center{
+    display: hidden !important;
   }
 }
 /* Estilo para el Paper del menú, limitado a la clase "magical-menu" */

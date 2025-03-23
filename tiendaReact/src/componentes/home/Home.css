@@ -1,7 +1,8 @@
 .home-container {
     padding: 16px;
-    min-height: calc(100vh - 64px)  !important; /* Ajusta si tienes un header fijo, por ejemplo */
+    /* min-height: calc(100vh - 64px)  !important;  */
     background-color: rgba(19, 184, 226, 0.3);
+    height: 100%;
   }
   
   .home-grid {
@@ -10,7 +11,7 @@
   
   /* Tarjeta temática: todas con la misma altura */
   .theme-card {
-    height: 300px !important; /* Puedes ajustar la altura según lo que necesites */
+    height: 350px !important; /* Puedes ajustar la altura según lo que necesites */
   }
   
   /* Área de acción de la tarjeta, donde se muestra el fondo */
